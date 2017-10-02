@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div{
+				width: 200px;
+				height: 200px;
+				background: #998;
+				border: 1px solid #333;
+			}
+		</style>
+		<script src="ajax.js"></script>
+		<script>
+			window.onload=function(){
+				var oBtn=document.getElementsByName("btn");
+				var oDiv=document.getElementById("div");
+				for(let i=0;i<oBtn.length;i++){
+					oBtn[i].index=i;
+				    oBtn[i].onclick=function(){
+					ajax(this.index+1+'.txt',function(str){
+						oDiv.innerHTML=str;
+					});
+				};
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<input type="button" value="按钮1" name="btn">
+		<input type="button" value="按钮2" name="btn">
+		<input type="button" value="按钮3" name="btn">
+		<div id="div"></div>
+	</body>
+</html>
